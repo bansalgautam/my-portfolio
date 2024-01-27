@@ -8,7 +8,7 @@ const Contact = ({ onClick }: { onClick: () => void }) => {
     <div className="w-full h-full flex flex-col justify-evenly relative">
       <div className="flex flex-col leading-tight text-[45px] md:text-[80px] text-center md:text-start">
         <h1>Available for work,</h1>
-        <h1>Let's connect.</h1>
+        <h1>Let&#39;s connect.</h1>
         <Link
           href="https://calendly.com/bansalgautam"
           className="text-2xl font-bold bg-[#dc4949] w-max px-4 py-2 rounded-lg mx-auto md:mx-0 text-white mt-4"

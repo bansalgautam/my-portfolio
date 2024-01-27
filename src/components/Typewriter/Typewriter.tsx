@@ -39,7 +39,7 @@ const useTypewriter = (texts: string[], speed = 50, delay = 1000) => {
     return () => {
       clearInterval(intervalId);
     };
-  }, [texts, speed, delay]);
+  }, [texts, speed, delay, update]);
 
   return texts[currentTextIndex.current].substring(0, currentPosition);
 };
@@ -49,36 +49,19 @@ const Typewriter = ({
   speed,
   delay,
   className = "",
-  cursorDelay = 100,
-  cursorStyle = "",
 }: {
   text: string[];
   speed?: number;
   className?: string;
   delay?: number;
-  cursorDelay?: number;
-  cursorStyle?: string;
 }) => {
   const displayText = useTypewriter(text, speed, delay);
-  const [cursor, setCursor] = useState(false);
-  const cursorRef = useRef(false);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCursor((value) => !value);
-      cursorRef.current = !cursorRef.current;      
-    }, cursorDelay);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
 
   return (
     <span className={className}>
       {" "}
       {displayText}
-      <span className={cursorStyle}>|</span>
+      <span>|</span>
     </span>
   );
 };

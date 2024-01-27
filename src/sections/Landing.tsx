@@ -15,7 +15,7 @@ const Landing = ({ contact }: { contact: () => void }) => {
     >
       <div className="flex flex-col justify-evenly  gap-4 flex-1 text-center md:text-start">
         <div className="text-[50px] lg:text-[70px] font-[600] leading-tight">
-          I'm Gautam Bansal
+          I&#39;m Gautam Bansal
         </div>
         <div className="text-2xl lg:text-3xl font-[500] pb-4">
           I am{" "}
