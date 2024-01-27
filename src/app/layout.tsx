@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth snap-mandatory snap-y">
-      <body className={`${inter.className} select-none`}>{children}</body>
+      <body className={`${inter.className} select-none relative`}>{children}</body>
     </html>
   );
 }

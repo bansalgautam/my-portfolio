@@ -8,8 +8,8 @@ const Navbar = ({
   contact: () => void;
 }) => {
   return (
-    <div className="fixed h-full w-full nav top-0 md:h-[70px] z-10">
-      <div className="h-full w-full max-w-[1366px] mx-auto flex flex-col items-center justify-between md:flex-row px-4">
+    <div className="fixed h-full w-full top-0 md:h-[70px] z-10">
+      <div className="h-full w-full max-w-[1366px] mx-auto hidden md:flex flex-col items-center justify-between md:flex-row px-4">
         <div className="h-[50px] flex items-center justify-center">
           <div
             onClick={landing}
