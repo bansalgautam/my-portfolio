@@ -8,38 +8,38 @@ const useTypewriter = (texts: string[], speed = 50, delay = 1000) => {
   const currentPositionRef = useRef(0);
   const incrementing = useRef(true);
 
-  const update = () => {
-    if (incrementing.current === true) {
-      setCurrentPosition((value) => value + 1);
-      currentPositionRef.current += 1;
-      if (
-        currentPositionRef.current === texts[currentTextIndex.current].length
-      ) {
-        setTimeout(() => {
-          incrementing.current = false;
-        }, delay);
-      }
-    } else {
-      setCurrentPosition((value) => value - 1);
-      currentPositionRef.current -= 1;
-      if (currentPositionRef.current === 0) {
-        setTimeout(() => {
-          incrementing.current = true;
-        }, delay);
-
-        currentTextIndex.current =
-          (currentTextIndex.current + 1) % texts.length;
-      }
-    }
-  };
-
   useEffect(() => {
+    const update = () => {
+      if (incrementing.current === true) {
+        setCurrentPosition((value) => value + 1);
+        currentPositionRef.current += 1;
+        if (
+          currentPositionRef.current === texts[currentTextIndex.current].length
+        ) {
+          setTimeout(() => {
+            incrementing.current = false;
+          }, delay);
+        }
+      } else {
+        setCurrentPosition((value) => value - 1);
+        currentPositionRef.current -= 1;
+        if (currentPositionRef.current === 0) {
+          setTimeout(() => {
+            incrementing.current = true;
+          }, delay);
+
+          currentTextIndex.current =
+            (currentTextIndex.current + 1) % texts.length;
+        }
+      }
+    };
+
     const intervalId = setInterval(update, speed);
 
     return () => {
       clearInterval(intervalId);
     };
-  }, [texts, speed, delay, update]);
+  }, [texts, speed, delay]);
 
   return texts[currentTextIndex.current].substring(0, currentPosition);
 };
